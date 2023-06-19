@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Make sure packages are updated and upgraded
+    apt:
+        update_cache: yes
+        upgrade: yes
+  - name: Ensure qemu-guest-agent is installed
+    apt:
+      name: qemu-guest-agent
+      state: present
